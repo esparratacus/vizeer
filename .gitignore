@@ -6,7 +6,9 @@
 
 # Ignore bundler config.
 /.bundle
-
+#Ignore aptana project file
+/.project
+/.gitignore
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
