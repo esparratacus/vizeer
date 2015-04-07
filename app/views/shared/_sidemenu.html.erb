@@ -1,0 +1,19 @@
+<ul class="main-navigation-menu">
+	<%if current_user.has_role? :admin%>
+	<li class="<%= get_active_menu_css('administracion') %>">
+		<a href="/administracion"><i class="clip-data"></i><span class="title">Administración</span><span class="selected"></span></a>
+	</li>
+	<%end%>
+	<li class="<%= get_active_menu_css('consejeria') %>">
+		<a href="javascript:void(0)"><i class="clip-grid-6"></i> <span class="title"> Consejería  </span><i class="icon-arrow"></i> </a>
+		<ul class="sub-menu" style="display: none;">
+			<li>
+				<a href="/consejeria"></i><span class="title">Calendario</span></a>
+			</li>
+			<li>
+				<a href="/appointments"><span class="title">Citas</span></a>
+			</li>
+		</ul>
+	</li>
+</ul>
+
