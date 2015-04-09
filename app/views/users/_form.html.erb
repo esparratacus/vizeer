@@ -1,0 +1,60 @@
+<%= form_for @user do |f| %>
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal">
+		&times;
+	</button>
+	<h3>Editar</h3>
+</div>
+<div class="modal-body">
+	<% if @user.errors.any? %>
+	<div class="error_explanation">
+		<h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+		<ul>
+			<% @user.errors.full_messages.each do |msg| %>
+			<li>
+				<%= msg %>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+
+	<div class="field">
+		<%= f.label :email %>
+		<div class="controls">
+			<%= f.email_field :email %>
+		</div>
+	</div>
+
+	<div class="field">
+		<%= f.label :password, "Password" %>
+		<div class="controls">
+			<%= f.password_field :password %>
+		</div>
+	</div>
+
+	<div class="field">
+		<%= f.label :password_confirmation %>
+		<div class="controls">
+			<%= f.password_field :password_confirmation %>
+		</div>
+	</div>
+	<div class="field">
+    <%= f.label :roles %>
+    <div class="controls">
+      <% Role.all.each do |role| %>
+        <%= check_box_tag "user[role_ids][]", role.id, @user.role_ids.include?(role.id) %>
+        <%= role.name %><br />
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+</div>
+</div>
+<% end %>
+		

@@ -1,7 +1,12 @@
 <ul class="main-navigation-menu">
 	<%if current_user.has_role? :admin%>
-	<li class="<%= get_active_menu_css('administracion') %>">
-		<a href="/administracion"><i class="clip-data"></i><span class="title">Administración</span><span class="selected"></span></a>
+	<li>
+		<a href="javascript:void(0)"><i class="clip-grid-6"></i> <span class="title"> Administración  </span><i class="icon-arrow"></i> </a>
+		<ul class="sub-menu" style="display: none;">
+			<li>
+				<a href="/users" class="<%= get_active_menu_css('usuarios') %>"></i><span class="title">Usuarios</span></a>
+			</li>
+		</ul>
 	</li>
 	<%end%>
 	<li class="<%= get_active_menu_css('consejeria') %>">

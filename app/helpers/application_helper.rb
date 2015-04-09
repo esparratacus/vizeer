@@ -15,9 +15,9 @@ module ApplicationHelper
       puts params
       return "Consejería"
     end
-    if params[:controller] == "administracion"
+    if params[:controller] == "users"
       puts params
-      return "Administración"
+      return "Usuarios"
     end
   end
   
@@ -26,9 +26,9 @@ module ApplicationHelper
         puts params
         return "Consejería"
     end
-    if params[:controller] == "administracion"
+    if params[:controller] == "users"
         puts params
-        return "Administración"
+        return "Usuarios" 
     end
   end
 end
