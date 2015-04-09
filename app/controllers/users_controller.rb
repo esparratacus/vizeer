@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def user_params
-      params.require(:user).permit( :email, :password, :password_confirmation, :role_ids =>[])
+      params.require(:user).permit(:id, :email, :password, :password_confirmation, :role_ids =>[])
     end
   def index
     @users = User.all
@@ -35,16 +35,18 @@ class UsersController < ApplicationController
       params[:user].delete(:password_confirmation)
     end
     
-     params[:user][:role_ids] ||= []
+     user_params[:role_ids] ||= []
      
      puts "Parametros"
-     puts user_params[:user]
+     puts user_params
     
     if @user.update_attributes(user_params)
       sign_in(@user, :bypass => true) if @user == current_user
-      redirect_to :users, :flash => { :success => 'User was successfully updated.' }
+      redirect_to :users, :flash => { :success => 'Datos de usuario actualizados satisfactoriamente.' }
     else
-      redirect_to :users
+      puts "Parametros"
+      puts user_parama
+      redirect_to :users, :flash => { :error => 'No ha sido posible actualizar los datos del usuario.' }
     end
   end
 
