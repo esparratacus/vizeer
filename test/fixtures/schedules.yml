@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  dia_semana: MyString
+  hora_inicio: 2015-04-09 23:05:22
+  hora_fin: 2015-04-09 23:05:22
+
+two:
+  user_id: 
+  dia_semana: MyString
+  hora_inicio: 2015-04-09 23:05:22
+  hora_fin: 2015-04-09 23:05:22

@@ -41,14 +41,15 @@
 		</div>
 	</div>
 	<div class="field">
-    <%= f.label :roles %>
-    <div class="controls">
-      <% Role.all.each do |role| %>
-        <%= check_box_tag "user[role_ids][]", role.id, @user.role_ids.include?(role.id) %>
-        <%= role.name %><br />
-      <% end %>
-    </div>
-  </div>
+		<%= f.label :roles %>
+		<div class="controls">
+			<% Role.all.each do |role| %>
+			<%= check_box_tag "user[role_ids][]", role.id, @user.role_ids.include?(role.id) %>
+			<%= role.name %>
+			<br />
+			<% end %>
+		</div>
+	</div>
 </div>
 <div class="modal-footer">
 	<div class="actions">
@@ -57,4 +58,3 @@
 </div>
 </div>
 <% end %>
-		

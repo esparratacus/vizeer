@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    set_default_role
   end
 
   def edit
@@ -36,9 +37,6 @@ class UsersController < ApplicationController
     end
     
      user_params[:role_ids] ||= []
-     
-     puts "Parametros"
-     puts user_params
     
     if @user.update_attributes(user_params)
       sign_in(@user, :bypass => true) if @user == current_user
@@ -53,6 +51,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to users_path, :flash => { :success => 'User was successfully deleted.' }
+    redirect_to users_path, :flash => { :success => 'Usuario eliminado del sistema.' }
   end
+  
 end

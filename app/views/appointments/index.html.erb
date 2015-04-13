@@ -1,2 +1,51 @@
-<h1>Appointments#index</h1>
-<p>Find me in app/views/appointments/index.html.erb</p>
+<div class="row">
+	<div class="col-sm-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<i class="fa fa-reorder"></i>
+				Estado de citas
+				<div class="panel-tools">
+					<a class="btn btn-xs btn-link"><i class="fa fa-plus"></i></a>
+				</div>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="tabbable">
+							<ul id="tabs" class="nav nav-tabs tab-padding tab-space-3 tab-blue">
+								<li class="active">
+									<a href="#pendientes" data-toggle="tab"> Pendientes </a>
+								</li>
+								<li>
+									<a href="#confirmadas" data-toggle="tab"> Confirmadas </a>
+								</li>
+								<li>
+									<a href="#concluidas" data-toggle="tab"> Concluidas </a>
+								</li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane in active" id="pendientes">
+									<p>
+										Aqui van las citas pedidas que no han sido confirmadas
+									</p>
+								</div>
+								<div class="tab-pane" id="confirmadas">
+									<p>
+										Aqui van las citas que han sido confirmadas
+									</p>
+								</div>
+								<div class="tab-pane" id="concluidas">
+									<p>
+										Citas concluidas
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+						
+				</div>
+				<%= link_to 'Pedir cita con un consejero',new_appointment_path, class: 'btn btn-blue btn-block'%>
+			</div>
+		</div>
+	</div>
+

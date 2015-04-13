@@ -1,19 +1,18 @@
 Rails.application.routes.draw do
   
-  
+
   devise_for :users, controllers: { :sessions => "users/sessions", :registrations => 'users/registrations', 
     :confirmations => 'users/confirmations', :passwords => "users/passwords" }
  
   resources :users
- 
+  resources :appointments
+  resources :schedules
   get 'administracion/index'
   get "consejeria/index"
   root :to => "consejeria#index"
   get "consejeria/" => "consejeria#index"
-  get 'appointments/index'
-  get 'appointments/' => 'appointments#index'
-  get 'administracion' => 'administracion#index'
-  get 'administracion/editar_usuario' => 'administracion#editar_usuario'
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,54 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<i class="fa fa-external-link-square"></i>
+				Mis horarios de atención
+				<div class="panel-tools"></div>
+			</div>
+			<div class="panel-body">
+				<table class="table table-hover" id="sample-table-1">
+					<thead>
+						<tr>
+							<th class="left">Día</th>
+							<th class="left">Hora inicio</th>
+							<th class="left">Hora fin</th>
+							<th></th>
+					</thead>
+					<tbody>
+						<%@horarios.each do |h|%>
+						<tr>
+							<td class="left"><%= h.dia_semana%></td>
+							<td class="left"><%= h.hora_inicio%></td>
+							<td class="left"><%= h.hora_fin%></td>
+							<td class="left">
+							<div class="visible-md visible-lg hidden-sm hidden-xs">
+								<%= link_to schedule_path(h),class: "btn btn-xs btn-bricky tooltips",:data=>{:method=>"delete", :placement=>"top","original-title"=>"Eliminar"} do%>
+								<i class="fa fa-times fa fa-white"></i>
+								<%end%>
+							</div>
+							<div class="visible-xs visible-sm hidden-md hidden-lg">
+								<div class="btn-group">
+									<a class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" href="#"> <i class="fa fa-cog"></i> <span class="caret"></span> </a>
+									<ul role="menu" class="dropdown-menu pull-right">
+										<li role="presentation">
+											<%= link_to schedule_path(h),role: "menuitem",tabindex: "-1",:data=>{:method=>"delete", :placement=>"top","original-title"=>"Eliminar"} do%>
+											<i class="fa fa-times"></i> Eliminar
+											<%end%>
+										</li>
+									</ul>
+								</div>
+							</div></td>
+						</tr>
+						<%end%>
+					</tbody>
+				</table>
+				<%= link_to 'Agregar nuevo horario de atención',new_schedule_path, class: 'btn btn-blue btn-block',:remote => 'true'%>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="horario" tabindex="-1" data-width="760" style="display: none;"></div>
+
+<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+

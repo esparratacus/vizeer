@@ -1,3 +1,4 @@
+
 <div class="row">
 	<div class="col-md-12">
 		<!-- start: BASIC TABLE PANEL -->
@@ -6,11 +7,6 @@
 				<i class="fa fa-external-link-square"></i>
 				Usuarios
 				<div class="panel-tools">
-					<a class="btn btn-xs btn-link panel-collapse collapses" href="#"> </a>
-					<a class="btn btn-xs btn-link panel-config" href="#panel-config" data-toggle="modal"> <i class="fa fa-wrench"></i> </a>
-					<a class="btn btn-xs btn-link panel-refresh" href="#"> <i class="fa fa-refresh"></i> </a>
-					<a class="btn btn-xs btn-link panel-expand" href="#"> <i class="fa fa-resize-full"></i> </a>
-					<a class="btn btn-xs btn-link panel-close" href="#"> <i class="fa fa-times"></i> </a>
 				</div>
 			</div>
 			<div class="panel-body">
@@ -31,19 +27,19 @@
 							<td class="center"><%= user.id%></td>
 							<td><%= user.email%></td>
 							<td class="center"> <%if user.has_role? :estudiante %>
-							Si
+							<i class="glyphicon glyphicon-ok" style="color: green;"></i>
 							<%else%>
-							No
+							<i class="glyphicon glyphicon-remove" style="color: red;"></i>
 							<%end%> </td>
 							<td class="center"> <%if user.has_role? :consejero %>
-							Si
+							<i class="glyphicon glyphicon-ok" style="color: green;"></i>
 							<%else%>
-							No
+							<i class="glyphicon glyphicon-remove" style="color: red;"></i>
 							<%end%> </td>
 							<td class="center"> <%if user.has_role? :admin %>
-							Si
+							<i class="glyphicon glyphicon-ok" style="color: green;"></i>
 							<%else%>
-							No
+							<i class="glyphicon glyphicon-remove" style="color: red;"></i>
 							<%end%> </td>
 							<td class="center">
 							<div class="visible-md visible-lg hidden-sm hidden-xs">
@@ -69,7 +65,7 @@
 						<%end%>
 					</tbody>
 				</table>
-			</div>
+			</div> 
 		</div>
 		<!-- end: BASIC TABLE PANEL -->
 
@@ -77,3 +73,4 @@
 </div>
 <div class="modal fade" id="myModal" tabindex="-1" data-width="760" style="display: none;">
 </div>
+

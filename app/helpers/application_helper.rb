@@ -27,12 +27,16 @@ end
       puts params
       return "Usuarios"
     end
+    if params[:controller] == "appointments"
+      puts params
+      return "Citas"
+    end
   end
   
   def breadcrumbs
-    if params[:controller] == "consejeria"
+    if params[:controller] == "appointments"
         puts params
-        return "Consejería"
+        return "Citas"
     end
     if params[:controller] == "users"
         puts params
