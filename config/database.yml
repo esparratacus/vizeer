@@ -5,13 +5,17 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: mysql2
+  adapter: pg
   pool: 5
   timeout: 5000
   encoding: utf8
 
 development:
-  <<: *default
+
+  pool: 5
+  timeout: 5000
+  adapter: mysql2
+  encoding: utf8
   database: vizeer
   username: root
   password: techspec1987
