@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
-  def user_params
-      params.require(:user).permit(:id, :email, :password, :password_confirmation, :role_ids =>[])
+  def appointment_params
+      params.require(:appointment).permit(:id,:alumno_id,:fecha ,:consejero_id,:estado,:reporte)
     end
   def index
     if current_user.has_role? :estudiante
@@ -14,22 +14,56 @@ class AppointmentsController < ApplicationController
   def show
     @cita = Appointment.find(params[:id])
   end
-
   def new
-    @cita = Appointment.new
+    @dia_semana= Hash.new
+    @dia_semana['Lunes']=1
+    @dia_semana['Martes']=2
+    @dia_semana['Miercoles']=3
+    @dia_semana['Jueves']=4
+    @dia_semana['Viernes']=5
+    @appointment=Appointment.new
+    @horarios= Array.new
+    Schedule.all.each do |sc|
+      cita = Appointment.new
+      cita.fecha = cita.disponibilidad(sc.hora_inicio,@dia_semana[sc.dia_semana])
+      cita.consejero_id=sc.user_id
+      cita.alumno_id= current_user.id
+      cita.estado = "PENDIENTE"
+      @horarios<<cita
+    end
   end
 
   def edit
     @cita = Appointment.find(params[:id])
   end
-
-  def create
-    @cita = Appointment.new(params[:user])
-
+  def confirmar_cita
+    @cita = Appointment.find(params[:id])
+    @cita.estado="CONFIRMADA"
     if @cita.save
-      redirect_to :appointments, :flash => { :success => 'User was successfully created.' }
+      redirect_to :appointments, :flash => { :success => 'Su cita ha sido confirmada satisfactoriamente' }
     else
-      render :action => 'new'
+      render :action =>'index'
+    end
+  end
+  def generar_reporte
+    @cita = Appointment.find(params[:appointment][:id])
+    @cita.reporte= params[:appointment][:reporte]
+    @cita.estado="CONCLUIDA"
+    if @cita.save
+      redirect_to :appointments, :flash => { :success => 'Su cita ha concluido satisfactoriamente' }
+    else
+      render :action =>'index'
+    end
+  end
+  def create
+    puts "---- parametros de creacion----"
+    puts params
+    @appointment = Appointment.new(appointment_params)
+
+    if @appointment.save
+      redirect_to :appointments, :flash => { :success => 'Su cita ha sido creada satisfactoriamente' }
+    else
+      render :action => 'index'
     end
   end
 
@@ -41,7 +75,6 @@ class AppointmentsController < ApplicationController
       redirect_to :appointments, :flash => { :success => 'Datos de cita actualizados satisfactoriamente.' }
     else
       puts "Parametros"
-      puts user_parama
       redirect_to :appointments, :flash => { :error => 'No ha sido posible actualizar los datos de Cita.' }
     end
   end
@@ -49,6 +82,6 @@ class AppointmentsController < ApplicationController
   def destroy
     @cita = Appointment.find(params[:id])
     @cita.destroy
-    redirect_to appointments_path, :flash => { :success => 'Usuario eliminado del sistema.' }
+    redirect_to appointments_path, :flash => { :success => 'Cita eliminada del sistema.' }
   end
 end

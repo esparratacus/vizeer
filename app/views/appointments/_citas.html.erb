@@ -1,0 +1,30 @@
+
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal">
+		&times;
+	</button>
+	<h3>Horarios disponibles</h3>
+</div>
+<div class="modal-body">
+<%@horarios.each do |h|%>
+	<%@appointment=h%>
+	<%= form_for @appointment, url: appointments_path, html:{class:'form-horizontal',:method =>:post} do |f| %>
+		<%= f.hidden_field(:fecha,:value =>@appointment.fecha) %>
+		<%= f.hidden_field(:alumno_id,:value => @appointment.alumno_id) %>
+		<%= f.hidden_field(:consejero_id,:value => @appointment.consejero_id) %>
+		<%= f.hidden_field(:estado,:value => @appointment.estado) %>
+		<%= f.hidden_field(:reporte,:value => @appointment.reporte) %>
+	<div class="well well-sm">
+	<h3><%=@appointment.consejero.email%></h3>
+	<h3><%=@appointment.fecha.strftime("%A %B %d %I:%M %p")%></h3>
+		<div class="actions">
+			<button class="btn btn-green" type="submit">
+				Reservar
+			</button>
+		</div>
+	</div>
+		<%end%>
+<%end%>	
+<div class="modal-footer">
+	
+</div>

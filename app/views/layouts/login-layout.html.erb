@@ -39,13 +39,24 @@
 	<!-- start: BODY -->
 	<body class="login example1">
 		<div class="main-login col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-			<div class="logo">VIZEER
+			<div class="logo">
+				VIZEER
 			</div>
 			<!-- start: LOGIN BOX -->
 			<div class="box-login">
-			<%=flash[:alert]%>
-			<br /> <%= flash[:notice]%>
-				<%=yield%>
+				<% [:notice, :error, :alert, :success].each do |level| %>
+				<% unless flash[level].blank? %>
+
+				<%= content_tag(:div,class: flash_class(level))  do%>
+				<%= content_tag(:button,"×", class: "close",:data=>{:dismiss =>'alert'}) %>
+				<%= content_tag(:i,nil,class:flash_icon(level))%>
+				<%= flash[level]%>
+				<%end%>
+
+				<% end %>
+				<% end %>
+				<%= flash[:notice]%>
+				<%= yield%>
 			</div>
 			<!-- end: LOGIN BOX -->
 			<!-- start: COPYRIGHT -->

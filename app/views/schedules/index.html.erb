@@ -3,7 +3,7 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<i class="fa fa-external-link-square"></i>
-				Mis horarios de atención
+				Horarios
 				<div class="panel-tools"></div>
 			</div>
 			<div class="panel-body">
@@ -19,8 +19,8 @@
 						<%@horarios.each do |h|%>
 						<tr>
 							<td class="left"><%= h.dia_semana%></td>
-							<td class="left"><%= h.hora_inicio%></td>
-							<td class="left"><%= h.hora_fin%></td>
+							<td class="left"><%= h.hora_inicio.strftime('%I:%M %p')%></td>
+							<td class="left"><%= h.hora_fin.strftime('%I:%M %p')%></td>
 							<td class="left">
 							<div class="visible-md visible-lg hidden-sm hidden-xs">
 								<%= link_to schedule_path(h),class: "btn btn-xs btn-bricky tooltips",:data=>{:method=>"delete", :placement=>"top","original-title"=>"Eliminar"} do%>
@@ -38,7 +38,8 @@
 										</li>
 									</ul>
 								</div>
-							</div></td>
+							</div>
+							</td>
 						</tr>
 						<%end%>
 					</tbody>
@@ -50,5 +51,8 @@
 </div>
 <div class="modal fade" id="horario" tabindex="-1" data-width="760" style="display: none;"></div>
 
+
 <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+
+
 

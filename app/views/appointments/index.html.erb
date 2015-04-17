@@ -25,16 +25,168 @@
 							</ul>
 							<div class="tab-content">
 								<div class="tab-pane in active" id="pendientes">
+									<table class="table table-hover" id="sample-table-1">
+										<thead>
+											<tr>
+												<th class="left">Consejero</th>
+												<th class="left">Alumno</th>
+												<th class="left">Dia</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<%@citas.each do |cita|%>
+											<%if cita.estado=='PENDIENTE'%>
+											<tr>
+												<td class="left"><%= cita.consejero.email%></td>
+												<td class="left"><%= cita.alumno.email%></td>
+												<td class="left"><%= cita.fecha.strftime("%A %B %d %I:%M %p")%></td>
+												<td>
+												<div class="visible-md visible-lg hidden-sm hidden-xs">
+													<%= link_to appointment_path(cita),class: "btn btn-xs btn-bricky tooltips",:data=>{:method=>"delete", :placement=>"top","original-title"=>"Eliminar"} do%>
+													<i class="fa fa-times fa fa-white"></i>
+													<%end%>
+													<%if current_user.has_role? :consejero%>
+													<%= link_to "/appointments/"+cita.id.to_s+"/confirmar_cita",class: "btn btn-xs btn-teal tooltips",:data=>{:method=>"get", :placement=>"top","original-title"=>"confirmar"} do%>
+													<i class="fa fa-check fa fa-white"></i>
+													<%end%>
+													<%end%>
+						
+												</div>
+												<div class="visible-xs visible-sm hidden-md hidden-lg">
+													<div class="btn-group">
+														<a class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" href="#"> <i class="fa fa-cog"></i> <span class="caret"></span> </a>
+														<ul role="menu" class="dropdown-menu pull-right">
+															<li role="presentation">
+																<%= link_to appointment_path(cita),role: "menuitem",tabindex: "-1",:data=>{:method=>"delete", :placement=>"top","original-title"=>"Eliminar"} do%>
+																<i class="fa fa-check"></i> Eliminar
+																<%end%>
+															</li>
+														</ul>
+													</div>
+												</div>
+												<div class="visible-xs visible-sm hidden-md hidden-lg">
+													<div class="btn-group">
+														<a class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" href="#"> <i class="fa fa-cog"></i> <span class="caret"></span> </a>
+														<ul role="menu" class="dropdown-menu pull-right">
+															<%if current_user.has_role? :consejero%>
+															<li role="presentation">
+																<%= link_to "confirmar","/appointments/"+cita.id.to_s+"/confirmar_cita" ,role: "menuitem",tabindex: "-1",:data=>{ :method=>"get" ,:placement=>"top","original-title"=>"Eliminar"} %>
+															</li>
+															<%end%>
+														</ul>
+													</div>
+												</div> <%end%> </td>
+											</tr>
+											<%end%>
+											
+										</tbody>
+									</table>
 									<p>
 										Aqui van las citas pedidas que no han sido confirmadas
 									</p>
 								</div>
 								<div class="tab-pane" id="confirmadas">
+									<table class="table table-hover" id="sample-table-1">
+										<thead>
+											<tr>
+												<th class="left">Consejero</th>
+												<th class="left">Alumno</th>
+												<th class="left">Dia</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<%@citas.each do |cita|%>
+											<%if cita.estado=='CONFIRMADA'%>
+											<tr>
+												<td class="left"><%= cita.consejero.email%></td>
+												<td class="left"><%= cita.alumno.email%></td>
+												<td class="left"><%= cita.fecha.strftime("%A %B %d %I:%M %p")%></td>
+												<td>
+												<%if current_user.has_role? :consejero%>
+												<div class="visible-md visible-lg hidden-sm hidden-xs">
+													<%= link_to edit_appointment_path(cita),:remote => true,class: "btn btn-xs btn-teal tooltips",:data=>{ :placement=>"top","original-title"=>"Edit"} do%>
+													<i class="fa fa-check fa fa-white"></i>
+													<%end%>
+												</div>
+												<div class="visible-xs visible-sm hidden-md hidden-lg">
+													<div class="btn-group">
+														<a class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" href="#"> <i class="fa fa-cog"></i> <span class="caret"></span> </a>
+														<ul role="menu" class="dropdown-menu pull-right">
+															<li role="presentation">
+																<%= link_to "confirmar",edit_appointment_path(cita),:remote =>true ,role: "menuitem",tabindex: "-1",:data=>{ :method=>"get" ,:placement=>"top","original-title"=>"Eliminar"} %>
+															</li>
+														</ul>
+													</div>
+												</div>
+												<%end%> 
+												<%end%> </td>
+											</tr>
+											<%end%>
+											
+										</tbody>
+									</table>
 									<p>
 										Aqui van las citas que han sido confirmadas
 									</p>
 								</div>
 								<div class="tab-pane" id="concluidas">
+								<table class="table table-hover" id="sample-table-1">
+										<thead>
+											<tr>
+												<th class="left">Consejero</th>
+												<th class="left">Alumno</th>
+												<th class="left">Dia</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<%@citas.each do |cita|%>
+											<%if cita.estado=='CONCLUIDA'%>
+											<tr>
+												<td class="left"><%= cita.consejero.email%></td>
+												<td class="left"><%= cita.alumno.email%></td>
+												<td class="left"><%= cita.fecha.strftime("%A %B %d %I:%M %p")%></td>
+												<td>
+												<div class="visible-md visible-lg hidden-sm hidden-xs">
+									
+													
+													<%= link_to "/appointments/"+cita.id.to_s,:remote=>true,class: "btn btn-xs btn-teal tooltips",:data=>{:method=>"get", :placement=>"top","original-title"=>"detalles"} do%>
+													<i class="clip-eye"></i>
+													<%end%>
+													
+						
+												</div>
+												<div class="visible-xs visible-sm hidden-md hidden-lg">
+													<div class="btn-group">
+														<a class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" href="#"> <i class="fa fa-cog"></i> <span class="caret"></span> </a>
+														<ul role="menu" class="dropdown-menu pull-right">
+															<li role="presentation">
+																<%= link_to appointment_path(cita),role: "menuitem",tabindex: "-1",:data=>{:method=>"delete", :placement=>"top","original-title"=>"Eliminar"} do%>
+																<i class="clip-eye"></i> Eliminar
+																<%end%>
+															</li>
+														</ul>
+													</div>
+												</div>
+												<div class="visible-xs visible-sm hidden-md hidden-lg">
+													<div class="btn-group">
+														<a class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" href="#"> <i class="fa fa-cog"></i> <span class="caret"></span> </a>
+														<ul role="menu" class="dropdown-menu pull-right">
+															<%if current_user.has_role? :consejero%>
+															<li role="presentation">
+																<%= link_to "confirmar","/appointments/"+cita.id.to_s+"/confirmar_cita" ,role: "menuitem",tabindex: "-1",:data=>{ :method=>"get" ,:placement=>"top","original-title"=>"Eliminar"} %>
+															</li>
+															<%end%>
+														</ul>
+													</div>
+												</div> <%end%> </td>
+											</tr>
+											<%end%>
+											
+										</tbody>
+									</table>
 									<p>
 										Citas concluidas
 									</p>
@@ -42,10 +194,13 @@
 							</div>
 						</div>
 					</div>
-						
+
 				</div>
-				<%= link_to 'Pedir cita con un consejero',new_appointment_path, class: 'btn btn-blue btn-block'%>
+				<%if current_user.has_role? :estudiante%>
+				<%= link_to 'Pedir cita con un consejero',new_appointment_path, class: 'btn btn-blue btn-block',:remote => 'true'%>
+				<%end%>
 			</div>
 		</div>
 	</div>
-
+	<div class="modal fade" id="citas_disponibles" tabindex="-1" data-width="760" style="display: none;"></div>
+	<div class="modal fade" id="reportes" tabindex="-1" data-width="760" style="display: none;"></div>

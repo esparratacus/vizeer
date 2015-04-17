@@ -1,0 +1,20 @@
+<%= form_for @cita, url: appointments_generar_reporte_path, html:{class:'form-horizontal',:method =>:post} do |f| %>
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal">
+		&times;
+	</button>
+	<h3>Generar Reporte</h3>
+</div>
+<div class="modal-body">
+	<%= f.hidden_field(:id,:value =>@cita.id) %>
+	<%= f.text_area(:reporte)%>
+</div>
+<div class="modal-footer">
+	<div class="actions">
+		<button class="btn btn-green" type="submit">
+			Guardar
+		</button>
+	</div>
+</div>
+<%end%>
+

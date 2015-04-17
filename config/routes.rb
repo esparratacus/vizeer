@@ -6,11 +6,14 @@ Rails.application.routes.draw do
  
   resources :users
   resources :appointments
+  get "/appointments/:id/confirmar_cita/"=> "appointments#confirmar_cita"
+  post "/appointments/generar_reporte/"=> "appointments#generar_reporte"
   resources :schedules
   get 'administracion/index'
   get "consejeria/index"
   root :to => "consejeria#index"
   get "consejeria/" => "consejeria#index"
+  
   
   
   # The priority is based upon order of creation: first created -> highest priority.

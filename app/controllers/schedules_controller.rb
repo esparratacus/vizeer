@@ -19,9 +19,10 @@ class SchedulesController < ApplicationController
     @horario.user_id=current_user.id
     puts "PARAMETROS------------------"
     puts params
+    @horario.hora_fin = @horario.hora_inicio + 3600
     
     if @horario.save
-      redirect_to :schedules, :flash => { :success => 'User was successfully created.' }
+      redirect_to :schedules, :flash => { :success => 'Horario de atención creado exitosamente.' }
     else
       render :action => 'index'
     end

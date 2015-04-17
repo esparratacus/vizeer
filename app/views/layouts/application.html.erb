@@ -56,7 +56,7 @@
 					</button>
 					<!-- end: RESPONSIVE MENU TOGGLER -->
 					<!-- start: LOGO -->
-					<a class="navbar-brand" href="index.html"> CLIP<i class="clip-clip"></i>ONE </a>
+					<a class="navbar-brand" href="/">Vizeer</a>
 					<!-- end: LOGO -->
 				</div>
 				<div class="navbar-tools">
@@ -480,7 +480,7 @@
 					
 						<%= content_tag(:div,class: flash_class(level))  do%>
 							<%= content_tag(:button,"×", class: "close",:data=>{:dismiss =>'alert'}) %>
-							<%= content_tag(:i,nil,class:"fa fa-times-circle")%>
+							<%= content_tag(:i,nil,class:flash_icon(level))%>
 							<%=flash[level]%>
 						<%end%>
 						
