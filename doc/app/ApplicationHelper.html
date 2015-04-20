@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>module ApplicationHelper - Rails Application Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-breadcrumbs">#breadcrumbs</a>
+    
+    <li ><a href="#method-i-flash_class">#flash_class</a>
+    
+    <li ><a href="#method-i-flash_icon">#flash_icon</a>
+    
+    <li ><a href="#method-i-get_active_menu_css">#get_active_menu_css</a>
+    
+    <li ><a href="#method-i-head_title">#head_title</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ApplicationHelper">
+  <h1 id="module-ApplicationHelper" class="module">
+    module ApplicationHelper
+  </h1>
+
+  <section class="description">
+    
+<p>Modulo de métodos de ayuda comunes a todas las vistas de la aplicación.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-breadcrumbs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">breadcrumbs</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Método que define los breadcrumbs de la aplicación</p>
+<ul><li>
+<p>*Parámetros* :</p>
+
+<pre>- +selector+ -&gt; Controlador activo</pre>
+</li><li>
+<p><strong>Resultado</strong> :</p>
+<ul><li>
+<p>String con el camino hacia el controlador actual de la aplicación</p>
+</li></ul>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="breadcrumbs-source">
+            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">breadcrumbs</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:controller</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;appointments&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">params</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Citas&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:controller</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;users&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">params</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Usuarios&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:controller</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;schedules&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">params</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Mis horarios de atención&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-flash_class" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flash_class</span><span
+            class="method-args">(level)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Método que define la clase HTML de la alerta generada por alguna acción</p>
+<ul><li>
+<p>*Parámetros* :</p>
+
+<pre>- +level+ -&gt; Tipo de alerta</pre>
+</li><li>
+<p><strong>Resultado</strong> :</p>
+<ul><li>
+<p>String con la clase HTML de la alerta</p>
+</li></ul>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="flash_class-source">
+            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flash_class</span>(<span class="ruby-identifier">level</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">level</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:notice</span> <span class="ruby-keyword">then</span> <span class="ruby-string">&quot;alert alert-info&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:success</span> <span class="ruby-keyword">then</span> <span class="ruby-string">&quot;alert alert-success&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:error</span> <span class="ruby-keyword">then</span> <span class="ruby-string">&quot;alert alert-danger&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:alert</span> <span class="ruby-keyword">then</span> <span class="ruby-string">&quot;alert alert-warning&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-flash_icon" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flash_icon</span><span
+            class="method-args">(level)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Método que define la clase HTML del ícono de la alerta generada por alguna
+acción</p>
+<ul><li>
+<p>*Parámetros* :</p>
+
+<pre>- +level+ -&gt; Tipo de alerta</pre>
+</li><li>
+<p><strong>Resultado</strong> :</p>
+<ul><li>
+<p>String con la clase HTML del ícono de la alerta</p>
+</li></ul>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="flash_icon-source">
+            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flash_icon</span>(<span class="ruby-identifier">level</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">level</span>
+  <span class="ruby-comment">#when :notice then &quot;alert alert-info&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:success</span> <span class="ruby-keyword">then</span> <span class="ruby-string">&quot;fa fa-check-circle&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:error</span> <span class="ruby-keyword">then</span> <span class="ruby-string">&quot;fa fa-times-circle&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:alert</span> <span class="ruby-keyword">then</span> <span class="ruby-string">&quot;fa fa-exclamation-triangle&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_active_menu_css" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_active_menu_css</span><span
+            class="method-args">(selector)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Método que define la clase HTML de la selección actual en el menu izquierdo
+de la aplicación</p>
+<ul><li>
+<p>*Parámetros* :</p>
+
+<pre>- +selector+ -&gt; Sección de la aplicación seleccionada</pre>
+</li><li>
+<p><strong>Resultado</strong> :</p>
+<ul><li>
+<p>String de la clase HTML que marca la seleccón de la sección</p>
+</li></ul>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="get_active_menu_css-source">
+            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_active_menu_css</span>(<span class="ruby-identifier">selector</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:controller</span>]
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;selector:&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">selector</span>
+  <span class="ruby-identifier">res</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">selector</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:controller</span>]
+    <span class="ruby-identifier">res</span> = <span class="ruby-string">&#39;active open&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">res</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-head_title" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">head_title</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Método que define el título HTML del contenido de una sección de la
+aplicación</p>
+<ul><li>
+<p>*Parámetros* :</p>
+
+<pre>- +selector+ -&gt; Controlador activo</pre>
+</li><li>
+<p><strong>Resultado</strong> :</p>
+<ul><li>
+<p>String represantando el titulo de la sección</p>
+</li></ul>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="head_title-source">
+            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">head_title</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:controller</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;consejeria&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">params</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Consejería&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:controller</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;users&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">params</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Usuarios&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:controller</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;appointments&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">params</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Citas&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:controller</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;schedules&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">params</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Mis horarios de atención&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
