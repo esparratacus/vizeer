@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
-gem 'mysql2'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -39,8 +38,13 @@ gem 'rolify'
 gem 'bootstrap-timepicker-rails'
 gem 'tod'
 
+group :production do
+  gem 'pg'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'mysql2'
   gem 'byebug'
   gem 'railroady'
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -50,4 +54,5 @@ group :development, :test do
   gem 'spring'
   gem 'annotate', '~> 2.6.6'
 end
+gem 'rails_12factor', group: :production
 
