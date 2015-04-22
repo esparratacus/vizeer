@@ -1,3 +1,5 @@
+# Clase que se encarga de manejar el registro de usuario 
+# Trazabilidad: CU002-R2
 class Users::SessionsController < Devise::SessionsController
   layout 'login-layout'
 # before_filter :configure_sign_in_params, only: [:create]

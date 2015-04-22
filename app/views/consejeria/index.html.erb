@@ -1,62 +1,33 @@
 <div class="row">
-	<div class="col-sm-12">
-		<!-- start: FULL CALENDAR PANEL -->
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<i class="fa fa-calendar"></i>
-				Full Calendar
-				<div class="panel-tools">
-					<a class="btn btn-xs btn-link panel-collapse collapses" href="#"> </a>
-					<a class="btn btn-xs btn-link panel-config" href="#panel-config" data-toggle="modal"> <i class="fa fa-wrench"></i> </a>
-					<a class="btn btn-xs btn-link panel-refresh" href="#"> <i class="fa fa-refresh"></i> </a>
-					<a class="btn btn-xs btn-link panel-expand" href="#"> <i class="fa fa-resize-full"></i> </a>
-					<a class="btn btn-xs btn-link panel-close" href="#"> <i class="fa fa-times"></i> </a>
-				</div>
+	<div class="col-sm-4">
+		<div class="core-box">
+			<div class="heading">
+				<i class="clip-user-4 circle-icon circle-green"></i>
+				<h2>Consejería</h2>
 			</div>
-			<div class="panel-body">
-				<div class="col-sm-9">
-					<div id='calendar'></div>
-				</div>
-				<div class="col-sm-3">
-					<h4>Draggable categories</h4>
-					<div id="event-categories">
-						<div class="event-category label-green" data-class="label-green">
-							<i class="fa fa-move"></i>
-							Home
-						</div>
-						<div class="event-category label-default" data-class="label-default">
-							<i class="fa fa-move"></i>
-							Work
-						</div>
-						<div class="event-category label-purple" data-class="label-purple">
-							<i class="fa fa-move"></i>
-							Holidays
-						</div>
-						<div class="event-category label-orange" data-class="label-orange">
-							<i class="fa fa-move"></i>
-							Party
-						</div>
-						<div class="event-category label-yellow" data-class="label-yellow">
-							<i class="fa fa-move"></i>
-							Birthday
-						</div>
-						<div class="event-category label-teal" data-class="label-teal">
-							<i class="fa fa-move"></i>
-							Generic
-						</div>
-						<div class="event-category label-beige" data-class="label-beige">
-							<i class="fa fa-move"></i>
-							To Do
-						</div>
-						<div class="checkbox">
-							<label>
-								<input type="checkbox" class="grey" id="drop-remove" />
-								Remove after drop </label>
-						</div>
-					</div>
-				</div>
+			<div class="content">
+			<ul>
+				<li><a  href="/appointments"> Citas <i class="clip-arrow-right-2"></i> </a></li>
+				<%if current_user.has_role? :consejero%>
+				<li><a href="/schedules"> Mis horarios de atención<i class="clip-arrow-right-2"></i> </a></li>
+				<%end%>
+			</ul>
 			</div>
 		</div>
-		<!-- end: FULL CALENDAR PANEL -->
 	</div>
+	<%if current_user.has_role? :admin%>
+	<div class="col-sm-4">
+		<div class="core-box">
+			<div class="heading">
+				<i class="clip-database circle-icon circle-bricky"></i>
+				<h2>Administración</h2>
+			</div>
+			<div class="content">
+				<a  href="/users"> Usuarios <i class="clip-arrow-right-2"></i> </a>
+			</div>
+		</div>
+	</div>
+	<%end%>
 </div>
+
+	

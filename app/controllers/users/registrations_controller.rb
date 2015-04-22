@@ -1,3 +1,5 @@
+# Clase que se encarga de manejar el registro de usuario 
+# Trazabilidad: CU001-R6
 class Users::RegistrationsController < Devise::RegistrationsController
   layout 'registration-layout'
 # before_filter :configure_sign_up_params, only: [:create]

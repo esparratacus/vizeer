@@ -134,8 +134,8 @@ href="Schedule.html">Schedule</a> entre la base de datos y la vista</p>
 
         <div class="method-description">
           
-          <p>Método que agrega un objeto de tipo <a href="Schedule.html">Schedule</a> a
-la base de datos</p>
+          <p>CU016-R02 Método que agrega un objeto de tipo <a
+href="Schedule.html">Schedule</a> a la base de datos</p>
 <ul><li>
 <p>*Parámetros* :</p>
 <ul><li>
@@ -154,7 +154,7 @@ como registro en la base de datos</p>
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/schedules_controller.rb, line 32</span>
+            <pre><span class="ruby-comment"># File app/controllers/schedules_controller.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@horario</span> = <span class="ruby-constant">Schedule</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">schedule_params</span>)
   <span class="ruby-ivar">@horario</span>.<span class="ruby-identifier">user_id</span>=<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>
@@ -209,7 +209,7 @@ href="Schedule.html">Schedule</a></p>
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/schedules_controller.rb, line 54</span>
+            <pre><span class="ruby-comment"># File app/controllers/schedules_controller.rb, line 56</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@user</span> = <span class="ruby-constant">Schedule</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">destroy</span>
@@ -279,8 +279,8 @@ la variable @horarios</p>
 
         <div class="method-description">
           
-          <p>Método que prepara el objeto de tipo <a href="Schedule.html">Schedule</a>
-para crearlo</p>
+          <p>CU016-R02 Método que prepara el objeto de tipo <a
+href="Schedule.html">Schedule</a> para crearlo</p>
 <ul><li>
 <p><strong>Resultado</strong> :</p>
 <ul><li>
@@ -293,7 +293,7 @@ variable @horario</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/schedules_controller.rb, line 22</span>
+            <pre><span class="ruby-comment"># File app/controllers/schedules_controller.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@dias</span> =[<span class="ruby-string">&#39;lunes&#39;</span>,<span class="ruby-string">&#39;martes&#39;</span>,<span class="ruby-string">&#39;miercoles&#39;</span>,<span class="ruby-string">&#39;jueves&#39;</span>,<span class="ruby-string">&#39;viernes&#39;</span>]
   <span class="ruby-ivar">@horario</span>=<span class="ruby-constant">Schedule</span>.<span class="ruby-identifier">new</span>
@@ -392,7 +392,7 @@ variable @horario</p>
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/schedules_controller.rb, line 46</span>
+            <pre><span class="ruby-comment"># File app/controllers/schedules_controller.rb, line 48</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
 <span class="ruby-keyword">end</span></pre>
           </div>

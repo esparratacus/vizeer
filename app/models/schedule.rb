@@ -11,7 +11,7 @@
 #  updated_at  :datetime         not null
 #
 
-# Clas que modela los horarios de atención de los consejeros en objetos de tipo Schedule
+# Clase que modela los horarios de atención de los consejeros en objetos de tipo Schedule
 class Schedule < ActiveRecord::Base
   belongs_to :consejero, :class_name => 'User',:foreign_key=>'user_id'
   require 'tod'

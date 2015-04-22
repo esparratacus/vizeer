@@ -16,6 +16,7 @@ class SchedulesController < ApplicationController
   def show
   end
 
+  # CU016-R02
   # Método que prepara el objeto de tipo Schedule para crearlo
   # * *Resultado* :
   #   - Asigna a un objeto de tipo Schedule vacío a la variable @horario
@@ -24,6 +25,7 @@ class SchedulesController < ApplicationController
     @horario=Schedule.new
   end
 
+  # CU016-R02
   # Método que agrega un objeto de tipo Schedule a la base de datos
   # * *Parámetros* :
   #   - +user_params+ -> hash con la información del objeto de tipo Schedule

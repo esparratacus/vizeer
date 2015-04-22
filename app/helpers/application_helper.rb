@@ -52,7 +52,7 @@ module ApplicationHelper
   def head_title
     if params[:controller] == "consejeria"
       puts params
-      return "Consejería"
+      return "Inicio"
     end
     if params[:controller] == "users"
       puts params

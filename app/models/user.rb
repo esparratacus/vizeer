@@ -21,8 +21,11 @@
 # Clase que modela los usuarios de acuerdo a las campos en la base de datos
 class User < ActiveRecord::Base
   rolify
+  
+  # Relaciones del objeto de tipo User en la base de datos
   has_many :appointments
   has_many :schedules
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

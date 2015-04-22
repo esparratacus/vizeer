@@ -5,6 +5,8 @@ class AppointmentsController < ApplicationController
   def appointment_params
       params.require(:appointment).permit(:id,:alumno_id,:fecha ,:consejero_id,:estado,:reporte)
     end
+  
+  #CU17-R02,CU17-R03
   # Muestra un listado de los objetos de tipo Appointment asociados al usuario. Estos objetos dependen del rol de usuario si es de tipo consejero o estudiante
   def index
     if current_user.has_role? :estudiante
@@ -20,6 +22,7 @@ class AppointmentsController < ApplicationController
     @cita = Appointment.find(params[:id])
   end
   
+  # CU0013-R1 CU0015-R1 CU016-R1
   # Prepara la información requerida para la solicitud de un cita
   def new
     @dia_semana= Hash.new
@@ -49,6 +52,7 @@ class AppointmentsController < ApplicationController
     @cita = Appointment.find(params[:id])
   end
   
+  # CU0014-R1,CU17-R04
   # Cambia el estado de una cita de "PENDIENTE" a "COFIRMADA"
   # * *Parámetros*    :
   #   - +id+ -> identificador único del consejero
@@ -64,6 +68,7 @@ class AppointmentsController < ApplicationController
     end
   end
   
+  # CU0013-R1
   # Guarda el reporte de la cita generado por el consejero
   # * *Parámetros*    :
   #   - +id+ -> identificador único del objeto de tipo Appointment
@@ -81,6 +86,7 @@ class AppointmentsController < ApplicationController
     end
   end
   
+  # CU0013-R1
   # Guarda los datos de la cita en la base de datos
   # * *Parámetros*    :
   #   - +consejeror_id+ -> identificador único del consejero
@@ -100,6 +106,7 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  # CU0014-R1 CU0014-R2
   # Actualiza los datos de un objeto de tipo Appointment
   # * *Parámetros*    :
   #   - +id+ -> Identificador único del registro de tipo Appointment a modificar
@@ -118,6 +125,7 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  # CU0014-R2,CU017-R05
   #Elimina un registro de tipo Appointment de la base de datos
   # * *Parámetros*    :
   #   - +id+ -> Identificador único del registro de tipo Appointment a eliminar

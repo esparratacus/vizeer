@@ -173,7 +173,8 @@ tipo <a href="Appointment.html">Appointment</a></p>
 
         <div class="method-description">
           
-          <p>Cambia el estado de una cita de “PENDIENTE” a “COFIRMADA”</p>
+          <p>CU0014-R1,CU17-R04 Cambia el estado de una cita de “PENDIENTE” a
+“COFIRMADA”</p>
 <ul><li>
 <p>*Parámetros*    :</p>
 <ul><li>
@@ -191,7 +192,7 @@ href="Appointment.html">Appointment</a> y se guarda en la base de datos</p>
 
           
           <div class="method-source-code" id="confirmar_cita-source">
-            <pre><span class="ruby-comment"># File app/controllers/appointments_controller.rb, line 57</span>
+            <pre><span class="ruby-comment"># File app/controllers/appointments_controller.rb, line 61</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">confirmar_cita</span>
   <span class="ruby-ivar">@cita</span> = <span class="ruby-constant">Appointment</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@cita</span>.<span class="ruby-identifier">estado</span>=<span class="ruby-string">&quot;CONFIRMADA&quot;</span>
@@ -224,7 +225,7 @@ href="Appointment.html">Appointment</a> y se guarda en la base de datos</p>
 
         <div class="method-description">
           
-          <p>Guarda los datos de la cita en la base de datos</p>
+          <p>CU0013-R1 Guarda los datos de la cita en la base de datos</p>
 <ul><li>
 <p>*Parámetros*    :</p>
 <ul><li>
@@ -246,7 +247,7 @@ exitosamente en la base de datos</p>
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/appointments_controller.rb, line 91</span>
+            <pre><span class="ruby-comment"># File app/controllers/appointments_controller.rb, line 97</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;---- parametros de creacion----&quot;</span>
   <span class="ruby-identifier">puts</span> <span class="ruby-identifier">params</span>
@@ -281,7 +282,9 @@ exitosamente en la base de datos</p>
 
         <div class="method-description">
           
-          <p>Elimina un registro de tipo <a href="Appointment.html">Appointment</a> de
+          <pre>CU0014-R2,CU017-R05</pre>
+
+<p>Elimina un registro de tipo <a href="Appointment.html">Appointment</a> de
 la base de datos</p>
 
 <pre>* *Parámetros*    :
@@ -293,7 +296,7 @@ la base de datos</p>
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/appointments_controller.rb, line 126</span>
+            <pre><span class="ruby-comment"># File app/controllers/appointments_controller.rb, line 134</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@cita</span> = <span class="ruby-constant">Appointment</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@cita</span>.<span class="ruby-identifier">destroy</span>
@@ -341,7 +344,7 @@ href="Appointment.html">Appointment</a> encontrado en la base de datos</p>
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/appointments_controller.rb, line 48</span>
+            <pre><span class="ruby-comment"># File app/controllers/appointments_controller.rb, line 51</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
   <span class="ruby-ivar">@cita</span> = <span class="ruby-constant">Appointment</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -368,7 +371,7 @@ href="Appointment.html">Appointment</a> encontrado en la base de datos</p>
 
         <div class="method-description">
           
-          <p>Guarda el reporte de la cita generado por el consejero</p>
+          <p>CU0013-R1 Guarda el reporte de la cita generado por el consejero</p>
 <ul><li>
 <p>*Parámetros*    :</p>
 <ul><li>
@@ -389,7 +392,7 @@ modifica el estado de la cita a CONCLUIDA</p>
 
           
           <div class="method-source-code" id="generar_reporte-source">
-            <pre><span class="ruby-comment"># File app/controllers/appointments_controller.rb, line 73</span>
+            <pre><span class="ruby-comment"># File app/controllers/appointments_controller.rb, line 78</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">generar_reporte</span>
   <span class="ruby-ivar">@cita</span> = <span class="ruby-constant">Appointment</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:appointment</span>][<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@cita</span>.<span class="ruby-identifier">reporte</span>= <span class="ruby-identifier">params</span>[<span class="ruby-value">:appointment</span>][<span class="ruby-value">:reporte</span>]
@@ -423,15 +426,16 @@ modifica el estado de la cita a CONCLUIDA</p>
 
         <div class="method-description">
           
-          <p>Muestra un listado de los objetos de tipo <a
-href="Appointment.html">Appointment</a> asociados al usuario. Estos objetos
-dependen del rol de usuario si es de tipo consejero o estudiante</p>
+          <p>CU17-R02,CU17-R03</p>
+
+<pre class="ruby"><span class="ruby-constant">Muestra</span> <span class="ruby-identifier">un</span> <span class="ruby-identifier">listado</span> <span class="ruby-identifier">de</span> <span class="ruby-identifier">los</span> <span class="ruby-identifier">objetos</span> <span class="ruby-identifier">de</span> <span class="ruby-identifier">tipo</span> <span class="ruby-constant">Appointment</span> <span class="ruby-identifier">asociados</span> <span class="ruby-identifier">al</span> <span class="ruby-identifier">usuario</span>. <span class="ruby-constant">Estos</span> <span class="ruby-identifier">objetos</span> <span class="ruby-identifier">dependen</span> <span class="ruby-identifier">del</span> <span class="ruby-identifier">rol</span> <span class="ruby-identifier">de</span> <span class="ruby-identifier">usuario</span> <span class="ruby-identifier">si</span> <span class="ruby-identifier">es</span> <span class="ruby-identifier">de</span> <span class="ruby-identifier">tipo</span> <span class="ruby-identifier">consejero</span> <span class="ruby-identifier">o</span> <span class="ruby-identifier">estudiante</span>
+</pre>
           
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/appointments_controller.rb, line 9</span>
+            <pre><span class="ruby-comment"># File app/controllers/appointments_controller.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">has_role?</span> <span class="ruby-value">:estudiante</span>
     <span class="ruby-ivar">@citas</span> = <span class="ruby-constant">Appointment</span>.<span class="ruby-identifier">where</span> <span class="ruby-value">:alumno_id</span> =<span class="ruby-operator">&gt;</span><span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>
@@ -463,13 +467,14 @@ dependen del rol de usuario si es de tipo consejero o estudiante</p>
 
         <div class="method-description">
           
-          <p>Prepara la información requerida para la solicitud de un cita</p>
+          <p>CU0013-R1 CU0015-R1 CU016-R1 Prepara la información requerida para la
+solicitud de un cita</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/appointments_controller.rb, line 24</span>
+            <pre><span class="ruby-comment"># File app/controllers/appointments_controller.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@dia_semana</span>= <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@dia_semana</span>[<span class="ruby-string">&#39;Lunes&#39;</span>]=<span class="ruby-value">1</span>
@@ -518,7 +523,7 @@ solicitado por el usuario</p>
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/appointments_controller.rb, line 19</span>
+            <pre><span class="ruby-comment"># File app/controllers/appointments_controller.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
   <span class="ruby-ivar">@cita</span> = <span class="ruby-constant">Appointment</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -545,7 +550,7 @@ solicitado por el usuario</p>
 
         <div class="method-description">
           
-          <p>Actualiza los datos de un objeto de tipo <a
+          <p>CU0014-R1 CU0014-R2 Actualiza los datos de un objeto de tipo <a
 href="Appointment.html">Appointment</a></p>
 <ul><li>
 <p>*Parámetros*    :</p>
@@ -566,7 +571,7 @@ href="Appointment.html">Appointment</a> a modificar</p>
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/appointments_controller.rb, line 109</span>
+            <pre><span class="ruby-comment"># File app/controllers/appointments_controller.rb, line 116</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-ivar">@cita</span> = <span class="ruby-constant">Appointment</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
  
