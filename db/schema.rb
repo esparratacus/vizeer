@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150406222958) do
+ActiveRecord::Schema.define(version: 20150528234232) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer  "consejero_id", limit: 4
@@ -21,6 +21,21 @@ ActiveRecord::Schema.define(version: 20150406222958) do
     t.text     "reporte",      limit: 65535
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string   "nombre",           limit: 255
+    t.text     "descripcion",      limit: 65535
+    t.integer  "creditos",         limit: 4
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
+    t.decimal  "intensidad",                     precision: 10, default: 0
+    t.decimal  "dificultad",                     precision: 10, default: 0
+    t.decimal  "utilidad",                       precision: 10, default: 0
+    t.integer  "numero_encuestas", limit: 4,                    default: 0
+    t.integer  "dif_sum",          limit: 4,                    default: 0
+    t.integer  "inten_sum",        limit: 4,                    default: 0
+    t.integer  "util_sum",         limit: 4,                    default: 0
   end
 
   create_table "roles", force: :cascade do |t|
@@ -33,6 +48,35 @@ ActiveRecord::Schema.define(version: 20150406222958) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+
+  create_table "schedules", force: :cascade do |t|
+    t.integer  "user_id",     limit: 4
+    t.string   "dia_semana",  limit: 255
+    t.time     "hora_inicio"
+    t.time     "hora_fin"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "schedules", ["user_id"], name: "index_schedules_on_user_id", using: :btree
+
+  create_table "sections", force: :cascade do |t|
+    t.integer  "course_id",  limit: 4
+    t.string   "semestre",   limit: 255
+    t.boolean  "estado",     limit: 1
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "sections", ["course_id"], name: "index_sections_on_course_id", using: :btree
+
+  create_table "sections_users", id: false, force: :cascade do |t|
+    t.integer "user_id",    limit: 4, null: false
+    t.integer "section_id", limit: 4, null: false
+  end
+
+  add_index "sections_users", ["section_id", "user_id"], name: "index_sections_users_on_section_id_and_user_id", using: :btree
+  add_index "sections_users", ["user_id", "section_id"], name: "index_sections_users_on_user_id_and_section_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -60,4 +104,6 @@ ActiveRecord::Schema.define(version: 20150406222958) do
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
+  add_foreign_key "schedules", "users"
+  add_foreign_key "sections", "courses"
 end

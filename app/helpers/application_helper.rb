@@ -66,6 +66,15 @@ module ApplicationHelper
       puts params
       return "Mis horarios de atención"
     end
+    if params[:controller] == "courses"
+      puts params
+      if params[:action]== "index"
+        return "Materias"
+      end
+      if params[:action]== "show"
+        return @materia.nombre
+      end
+    end
   end
 
   # Método que define los breadcrumbs de la aplicación
@@ -85,6 +94,10 @@ module ApplicationHelper
     if params[:controller] == "schedules"
       puts params
       return "Mis horarios de atención"
+    end
+    if params[:controller] == "courses"
+      puts params
+      return "Materias"
     end
   end
 end

@@ -1,0 +1,61 @@
+
+<div class="row">
+	<div class="col-md-12">
+		<!-- start: BASIC TABLE PANEL -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<i class="fa fa-external-link-square"></i>
+				Materias
+				<div class="panel-tools">
+				</div>
+			</div>
+			<div class="panel-body">
+				<table class="table table-hover" id="sample-table-1">
+					<thead>
+						<tr>
+							<th class="center">#</th>
+							<th>Nombre</th>
+							<th class="left">Créditos</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<%@materias.each do |m|%>
+						<tr>
+							<td class="center"><%= m.id%></td>
+							<td><%=link_to m.nombre,course_path(m)%></td>
+							<td class="left"><%= m.creditos%></td>
+							<td class="center">
+							<div class="visible-md visible-lg hidden-sm hidden-xs">
+							<%= link_to course_path(m),class: "btn btn-xs btn-bricky tooltips",:data=>{:method=>"delete", :placement=>"top","original-title"=>"Eliminar"} do%>
+								<i class="fa fa-times fa fa-white"></i>
+							<%end%>	
+							
+							</div>
+							<div class="visible-xs visible-sm hidden-md hidden-lg">
+								<div class="btn-group">
+									<a class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" href="#"> <i class="fa fa-cog"></i> <span class="caret"></span> </a>
+									<ul role="menu" class="dropdown-menu pull-right">
+										<li role="presentation">
+											<a role="menuitem" tabindex="-1" href="#"> <i class="fa fa-edit"></i> Edit </a>
+										</li>
+										<li role="presentation">
+											<a role="menuitem" tabindex="-1" href="#"> <i class="fa fa-times"></i> Remove </a>
+										</li>
+									</ul>
+								</div>
+							</div></td>
+						</tr>
+						<%end%>
+					</tbody>
+				</table>
+				<%= link_to 'Agregar materia',new_course_path, class: 'btn btn-blue btn-block',:remote => 'true'%>
+			</div> 
+		</div>
+		<!-- end: BASIC TABLE PANEL -->
+
+	</div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" data-width="760" style="display: none;">
+</div>
+

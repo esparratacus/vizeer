@@ -1,0 +1,36 @@
+<%@materias.each do |m|%>
+<div class="row">
+	<div class="col-md-12">
+		<div class="well well-sm">
+			<div class="row">
+				<div class="col-md-6">
+					<h3><%=link_to m.nombre,course_path(m)%></h3>
+					<p>
+						<strong>Créditos: </strong><%= m.creditos%>
+					</p>
+				</div>
+				<div class="col-md-6">
+					<h4>Dificultad</h4>
+					<div class="progress">
+						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<%= m.dificultad*100/5%>" aria-valuemin="0" aria-valuemax="100" style="width: <%= m.dificultad*100/5%>%">
+							<%= m.dificultad%>
+						</div>
+					</div>
+					<h4>Intensidad</h4>
+					<div class="progress">
+						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<%= m.intensidad*100/5%>" aria-valuemin="0" aria-valuemax="100" style="width: <%= m.intensidad*100/5%>%">
+							<%= m.intensidad%>
+						</div>
+					</div>
+					<h4>Utilidad</h4>
+					<div class="progress">
+						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<%= m.utilidad*100/5%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=m.utilidad*100/5%>%">
+							<%= m.utilidad%>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<%end%>

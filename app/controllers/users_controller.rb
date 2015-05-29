@@ -76,8 +76,8 @@ class UsersController < ApplicationController
       sign_in(@user, :bypass => true) if @user == current_user
       redirect_to :users, :flash => { :success => 'Datos de usuario actualizados satisfactoriamente.' }
     else
-      puts "Parametros"
-      puts user_parama
+      puts "-ERROR DE ACTUALIZACION DE PERMISOS"
+      puts user_params
       redirect_to :users, :flash => { :error => 'No ha sido posible actualizar los datos del usuario.' }
     end
   end

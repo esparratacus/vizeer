@@ -1,0 +1,9 @@
+class CreateSections < ActiveRecord::Migration
+  def change
+    create_table :sections do |t|
+      t.course :references
+      t.semestre :string
+      t.boolean :estado
+    end
+  end
+end

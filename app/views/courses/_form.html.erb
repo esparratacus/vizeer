@@ -1,0 +1,37 @@
+<%= form_for @materia, url: courses_path, html:{class:'form-horizontal',:method =>:post} do |f| %>
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal">
+		&times;
+	</button>
+	<h3>Nueva materia</h3>
+</div>
+<div class="modal-body">
+
+	<div class="form-group">
+		<div class="col-sm-2">
+			<%= f.label :nombre,class:"control-label"%>
+		</div>
+		<div class="col-sm-9">
+			<%= f.text_field(:nombre,{class:"form-control"})%>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-2">
+			<%= f.label :creditos,class:"control-label"%>
+		</div>
+		<div class="col-sm-9">
+			<%= f.text_field(:creditos ,class:"form-control")%>	
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<div class="actions">
+		<div class="actions">
+			<button class="btn btn-green" type="submit">
+				Guardar
+			</button>
+		</div>
+	</div>
+</div>
+<% end %>
+

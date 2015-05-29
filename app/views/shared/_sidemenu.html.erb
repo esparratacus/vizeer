@@ -4,7 +4,10 @@
 		<a href="javascript:void(0)"><i class="clip-grid-6"></i> <span class="title"> Administración  </span><i class="icon-arrow"></i> </a>
 		<ul class="sub-menu" style="display: none;">
 			<li>
-				<a href="/users" class="<%= get_active_menu_css('usuarios') %>" ></i><span class="title">Usuarios</span></a>
+				<a href="/users" class="<%= get_active_menu_css('users') %>" ></i><span class="title">Usuarios</span></a>
+			</li>
+			<li>
+				<a href="/courses" class="<%= get_active_menu_css('courses') %>" ></i><span class="title">Materias</span></a>
 			</li>
 		</ul>
 	</li>
@@ -23,6 +26,20 @@
 				<a href="/schedules"><span class="title">Mis horarios de atención</span></a>
 			</li>
 			<%end%>
+		</ul>
+	</li>
+	<li>
+		<a href="javascript:void(0)"><i class="clip-bubbles-2"></i> <span class="title"> SAE </span><i class="icon-arrow"></i> </a>
+		<ul class="sub-menu" style="display: none;">
+			<li>
+				<a href="/courses/catalogo"></i><span class="title">Catálogo de materias</span></a>
+			</li>
+			<li>
+				<a href="/courses"></i><span class="title">Mis materias</span></a>
+			</li>
+			<li>
+				<a href="/courses"></i><span class="title">Mis secciones</span></a>
+			</li>
 		</ul>
 	</li>
 </ul>

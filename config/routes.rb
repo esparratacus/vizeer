@@ -6,6 +6,13 @@ Rails.application.routes.draw do
  
   resources :users
   resources :appointments
+  get "/courses/catalogo"=> "courses#catalogo"
+  resources :courses
+  get "/courses/:id/cuestionario/"=>"courses#cuestionario"
+  get "/courses/:id/guardar_resultados"=>"courses#guardar_resultados"
+  
+  resources :sections
+  get "/courses/:id/agregar_seccion/"=>"courses#agregar_seccion"
   get "/appointments/:id/confirmar_cita/"=> "appointments#confirmar_cita"
   post "/appointments/generar_reporte/"=> "appointments#generar_reporte"
   resources :schedules

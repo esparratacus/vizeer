@@ -1,10 +1,10 @@
 # Clase encargada de controlar las acciones de objetos de tipo Schedule entre la base de datos y la vista 
 class SchedulesController < ApplicationController
-
+  
   #Define los parámetros que son alterables por el controlador
   def schedule_params
-      params.require(:schedule).permit(:id,:user_id,:dia_semana, :hora_inicio, :hora_fin)
-    end
+    params.require(:schedule).permit(:id,:user_id,:dia_semana, :hora_inicio, :hora_fin)
+  end
   
   # Método que accede a los registros de de tipo Schedule del consejero
   # * *Resultado* :
@@ -13,8 +13,6 @@ class SchedulesController < ApplicationController
     @horarios= Schedule.where :user_id => current_user.id
   end
 
-  def show
-  end
 
   # CU016-R02
   # Método que prepara el objeto de tipo Schedule para crearlo
