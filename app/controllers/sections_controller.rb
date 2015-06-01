@@ -20,4 +20,9 @@ class SectionsController < ApplicationController
   def show
     @seccion = Section.find(params[:id])
   end
+  def destroy
+    @seccion = Section.find(params[:id])
+    @seccion.destroy
+    redirect_to courses_path, :flash => { :success => 'Clase editada exitosamente.' }
+  end
 end

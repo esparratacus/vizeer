@@ -17,8 +17,8 @@
 							<th>Email</th>
 							<th class="center">Alumno</th>
 							<th class="center">Consejero</th>
+							<th class="center">Profesor</th>
 							<th class="center">Administrador</th>
-							<th></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -32,6 +32,11 @@
 							<i class="glyphicon glyphicon-remove" style="color: red;"></i>
 							<%end%> </td>
 							<td class="center"> <%if user.has_role? :consejero %>
+							<i class="glyphicon glyphicon-ok" style="color: green;"></i>
+							<%else%>
+							<i class="glyphicon glyphicon-remove" style="color: red;"></i>
+							<%end%> </td>
+							<td class="center"> <%if user.has_role? :profesor %>
 							<i class="glyphicon glyphicon-ok" style="color: green;"></i>
 							<%else%>
 							<i class="glyphicon glyphicon-remove" style="color: red;"></i>

@@ -1,5 +1,6 @@
 <div class="row">
 	<div class="col-sm-4">
+	<div class="well">
 		<div class="core-box">
 			<div class="heading">
 				<i class="clip-user-4 circle-icon circle-green"></i>
@@ -14,20 +15,50 @@
 			</ul>
 			</div>
 		</div>
+		</div>
 	</div>
 	<%if current_user.has_role? :admin%>
 	<div class="col-sm-4">
+	<div class="well">
 		<div class="core-box">
 			<div class="heading">
 				<i class="clip-database circle-icon circle-bricky"></i>
 				<h2>Administración</h2>
 			</div>
 			<div class="content">
+			<ul>
+				<li>
 				<a  href="/users"> Usuarios <i class="clip-arrow-right-2"></i> </a>
+				</li>
+				<li>
+				<a  href="/courses"> Materias <i class="clip-arrow-right-2"></i> </a>
+				</li>
+			</ul>
 			</div>
+		</div>
 		</div>
 	</div>
 	<%end%>
+	<div class="col-sm-4">
+	<div class="well">
+		<div class="core-box">
+			<div class="heading">
+				<i class="clip-note circle-icon circle-teal"></i>
+				<h2>SAE</h2>
+			</div>
+			<div class="content">
+			<ul>
+				<li>
+				<a  href="/courses/catalogo"> Catálogo de materias <i class="clip-arrow-right-2"></i> </a>
+				</li>
+				<li>
+				<a  href="/courses/mis_materias"> Mis materias <i class="clip-arrow-right-2"></i> </a>
+				</li>
+			</ul>
+			</div>
+		</div>
+		</div>
+	</div>
 </div>
 
 	

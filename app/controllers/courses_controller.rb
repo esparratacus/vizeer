@@ -4,7 +4,7 @@ class CoursesController < ApplicationController
     @materia=Course.find(params[:id])
   end
   def course_params
-    params.require(:course).permit(:id,:nombre,:creditos, :descripcion,:intensidad,:dificultad,:utilidad,:numero_encuestas, sections_attributes: [:id,:course_id,:semestre,:estado])
+    params.require(:course).permit(:id,:nombre,:creditos, :descripcion,:intensidad,:dificultad,:utilidad,:numero_encuestas,:users_ids=>[] ,sections_attributes: [:id,:course_id,:semestre,:estado], comments_attributes: [:id,:comment_id,:user_id,:comment])
   end
 
   def index
@@ -15,6 +15,25 @@ class CoursesController < ApplicationController
     @materias= Course.all.order(:nombre)
   end
   
+  def mis_materias
+    @vistas= current_user.courses
+    @total_creditos= Course.sum(:creditos)
+    @creditos_vistos=0
+  end
+  
+  def guardar_comentario
+    set_course
+    comment= Comment.new
+    comment.comentario = params[:comment]
+    comment.user=current_user
+    @materia.comments<<comment
+    if @materia.save
+      redirect_to courses_path, :flash => { :success => 'Comentario agregado' }
+    else
+      redirect_to courses_path, :flash => { :error => 'No ha sido posible guardar el comentario.' }
+    end
+  end
+  
   def show
     @materia= Course.find(params[:id])
   end
@@ -22,6 +41,7 @@ class CoursesController < ApplicationController
   def new
     @materia= Course.new
     @materia.sections.build
+    @materia.comments.build
   end
 
   def create
@@ -39,6 +59,7 @@ class CoursesController < ApplicationController
   def edit
     @materia=Course.find(params[:id])
     @materia.sections.build
+    @materia.comments.build
   end
   def update
     puts "PARAMETROS DE ACTUALIZACION DE CURSO"
@@ -75,6 +96,7 @@ class CoursesController < ApplicationController
     @materia.dificultad= @materia.dif_sum/@materia.numero_encuestas
     @materia.intensidad= @materia.inten_sum/@materia.numero_encuestas
     @materia.utilidad= @materia.util_sum/@materia.numero_encuestas
+    @materia.users<<current_user
     if @materia.save
       redirect_to :courses, :flash => { :success => 'Materia evaluada correctamente.' }
     else
@@ -85,7 +107,10 @@ class CoursesController < ApplicationController
   
   def destroy
     @materia = Course.find(params[:id])
-    @materia.destroy
-    redirect_to course_path, :flash => { :success => "Materia eliminada exitosamente."}
+    if @materia.destroy
+      redirect_to :courses, :flash => { :success => "Materia eliminada exitosamente."}
+    else
+      redirect_to :courses, :flash => { :error => "No se encontró la materia a eliminar"}
+    end
   end
 end

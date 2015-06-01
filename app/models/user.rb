@@ -25,7 +25,9 @@ class User < ActiveRecord::Base
   # Relaciones del objeto de tipo User en la base de datos
   has_many :appointments
   has_many :schedules
+  has_many :comments
   has_and_belongs_to_many :sections
+  has_and_belongs_to_many :courses,:join_table => :courses_users
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

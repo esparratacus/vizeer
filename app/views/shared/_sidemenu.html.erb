@@ -29,14 +29,16 @@
 		</ul>
 	</li>
 	<li>
-		<a href="javascript:void(0)"><i class="clip-bubbles-2"></i> <span class="title"> SAE </span><i class="icon-arrow"></i> </a>
+		<a href="javascript:void(0)"><i class="clip-home"></i> <span class="title"> SAE </span><i class="icon-arrow"></i> </a>
 		<ul class="sub-menu" style="display: none;">
 			<li>
 				<a href="/courses/catalogo"></i><span class="title">Catálogo de materias</span></a>
 			</li>
+			<%if current_user.has_role? :estudiante%>
 			<li>
-				<a href="/courses"></i><span class="title">Mis materias</span></a>
+				<a href="/courses/mis_materias"></i><span class="title">Mis materias</span></a>
 			</li>
+			<%end%>
 			<li>
 				<a href="/courses"></i><span class="title">Mis secciones</span></a>
 			</li>

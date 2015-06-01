@@ -26,7 +26,7 @@
 							<td><%=link_to m.nombre,course_path(m)%></td>
 							<td class="left"><%= m.creditos%></td>
 							<td class="center">
-							<div class="visible-md visible-lg hidden-sm hidden-xs">
+							<div class="visible-md visible-lg hidden-sm hidden-xs" data-no-turbolink >
 							<%= link_to course_path(m),class: "btn btn-xs btn-bricky tooltips",:data=>{:method=>"delete", :placement=>"top","original-title"=>"Eliminar"} do%>
 								<i class="fa fa-times fa fa-white"></i>
 							<%end%>	

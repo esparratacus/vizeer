@@ -70,6 +70,8 @@ module ApplicationHelper
       puts params
       if params[:action]== "index"
         return "Materias"
+      elsif params[:action]== "mis_materias"
+        return "Mis materias"
       end
       if params[:action]== "show"
         return @materia.nombre
