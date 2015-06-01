@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   resources :users
   resources :appointments
   get "/courses/catalogo"=> "courses#catalogo"
+  get "/courses/mis_materias"=> "courses#mis_materias"
   resources :courses
   get "/courses/:id/cuestionario/"=>"courses#cuestionario"
   get "/courses/:id/guardar_resultados"=>"courses#guardar_resultados"
+  get "/courses/:id/guardar_comentario"=>"courses#guardar_comentario"
   
   resources :sections
   get "/courses/:id/agregar_seccion/"=>"courses#agregar_seccion"
