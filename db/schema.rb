@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150528234232) do
+ActiveRecord::Schema.define(version: 20150530212205) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer  "consejero_id", limit: 4
@@ -22,6 +22,20 @@ ActiveRecord::Schema.define(version: 20150528234232) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "course_id",  limit: 4
+    t.text     "comentario", limit: 65535
+    t.integer  "negativo",   limit: 4
+    t.integer  "positivo",   limit: 4
+    t.integer  "denuncias",  limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "comments", ["course_id"], name: "index_comments_on_course_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "courses", force: :cascade do |t|
     t.string   "nombre",           limit: 255
@@ -36,6 +50,11 @@ ActiveRecord::Schema.define(version: 20150528234232) do
     t.integer  "dif_sum",          limit: 4,                    default: 0
     t.integer  "inten_sum",        limit: 4,                    default: 0
     t.integer  "util_sum",         limit: 4,                    default: 0
+  end
+
+  create_table "courses_users", id: false, force: :cascade do |t|
+    t.integer "user_id",   limit: 4, null: false
+    t.integer "course_id", limit: 4, null: false
   end
 
   create_table "roles", force: :cascade do |t|
@@ -104,6 +123,8 @@ ActiveRecord::Schema.define(version: 20150528234232) do
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
+  add_foreign_key "comments", "courses"
+  add_foreign_key "comments", "users"
   add_foreign_key "schedules", "users"
   add_foreign_key "sections", "courses"
 end

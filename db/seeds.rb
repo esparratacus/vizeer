@@ -6,6 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+roles= Role.create([{name: 'admin'},{name: 'estudiante'},{name: 'consejero'},{name: 'profesor'}])
+admin_user = User.new
+admin_user.email= "admin@admin.com"
+admin_user.password ="admin123"
+admin_user.save
+
  lista_materias=[["Pensamiento Algorítmico",3,"El objetivo principal es estimular su capacidad para enfrentar la solución de problemas y lograr que el estudiante desarrolle una nueva forma de pensar para que pueda emplear el computador como herramienta para la solución de problemas. 
 El alumno al terminar el curso estará en capacidad de aplicar  los tres paradigmas de pensamiento que constituyen la disciplina de la Informática: teoría, abstracción y diseño. 
 Para lograr el objetivo se utilizan metodologías que ayudan a la definición y desarrollo de algoritmos. Igualmente en la segunda parte del curso, se utiliza una herramienta para la programación (lenguaje C/C++) para así implementar las soluciones algorítmicas en el computador."],

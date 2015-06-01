@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  course_id: 
+  comentario: MyText
+  negativo: 1
+  positivo: 1
+  denuncias: 1
+
+two:
+  user_id: 
+  course_id: 
+  comentario: MyText
+  negativo: 1
+  positivo: 1
+  denuncias: 1
