@@ -26,7 +26,11 @@
 							<td><%=link_to m.nombre,course_path(m)%></td>
 							<td class="left"><%= m.creditos%></td>
 							<td class="center">
-							<div class="visible-md visible-lg hidden-sm hidden-xs" data-no-turbolink >
+							<div class="visible-md visible-lg hidden-sm hidden-xs">
+								<%= link_to edit_course_path(m),:remote => true,class: "btn btn-xs btn-teal tooltips",:data=>{:placement=>"top","original-title"=>"Editar"} do%>
+								<i class="fa fa-edit"></i>
+								<%end%>
+							
 							<%= link_to course_path(m),class: "btn btn-xs btn-bricky tooltips",:data=>{:method=>"delete", :placement=>"top","original-title"=>"Eliminar"} do%>
 								<i class="fa fa-times fa fa-white"></i>
 							<%end%>	

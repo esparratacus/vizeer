@@ -1,24 +1,29 @@
-Wed, 22 Apr 2015 16:31:59 -0500
+Sun, 31 May 2015 21:45:09 -0500
 README.rdoc	Fri, 10 Apr 2015 19:45:30 -0500
 app/controllers/application_controller.rb	Fri, 10 Apr 2015 19:45:30 -0500
 app/controllers/appointments_controller.rb	Wed, 22 Apr 2015 14:50:32 -0500
 app/controllers/consejeria_controller.rb	Fri, 10 Apr 2015 19:45:30 -0500
-app/controllers/schedules_controller.rb	Tue, 21 Apr 2015 21:37:59 -0500
+app/controllers/courses_controller.rb	Sun, 31 May 2015 21:43:57 -0500
+app/controllers/schedules_controller.rb	Mon, 25 May 2015 16:36:32 -0500
+app/controllers/sections_controller.rb	Sun, 31 May 2015 16:09:02 -0500
 app/controllers/users/confirmations_controller.rb	Fri, 10 Apr 2015 19:45:30 -0500
 app/controllers/users/omniauth_callbacks_controller.rb	Fri, 10 Apr 2015 19:45:30 -0500
 app/controllers/users/passwords_controller.rb	Fri, 10 Apr 2015 19:45:30 -0500
 app/controllers/users/registrations_controller.rb	Tue, 21 Apr 2015 21:33:19 -0500
 app/controllers/users/sessions_controller.rb	Tue, 21 Apr 2015 21:33:17 -0500
 app/controllers/users/unlocks_controller.rb	Fri, 10 Apr 2015 19:45:30 -0500
-app/controllers/users_controller.rb	Sun, 19 Apr 2015 01:13:06 -0500
+app/controllers/users_controller.rb	Tue, 26 May 2015 10:34:58 -0500
 app/helpers/administracion_helper.rb	Fri, 10 Apr 2015 19:45:30 -0500
-app/helpers/application_helper.rb	Wed, 22 Apr 2015 15:15:47 -0500
+app/helpers/application_helper.rb	Fri, 29 May 2015 15:57:22 -0500
 app/helpers/appointments_helper.rb	Sun, 19 Apr 2015 15:54:16 -0500
 app/helpers/consejeria_helper.rb	Sun, 19 Apr 2015 15:54:40 -0500
 app/helpers/schedules_helper.rb	Sun, 19 Apr 2015 15:55:03 -0500
 app/helpers/users_helper.rb	Sun, 19 Apr 2015 15:55:21 -0500
 app/models/ability.rb	Fri, 10 Apr 2015 19:45:30 -0500
 app/models/appointment.rb	Sun, 19 Apr 2015 00:15:37 -0500
+app/models/comment.rb	Sat, 30 May 2015 16:22:05 -0500
+app/models/course.rb	Sat, 30 May 2015 16:48:31 -0500
 app/models/role.rb	Sat, 18 Apr 2015 22:37:37 -0500
-app/models/schedule.rb	Sat, 18 Apr 2015 22:59:57 -0500
-app/models/user.rb	Wed, 22 Apr 2015 16:31:17 -0500
+app/models/schedule.rb	Wed, 22 Apr 2015 16:34:13 -0500
+app/models/section.rb	Thu, 21 May 2015 11:39:16 -0500
+app/models/user.rb	Sat, 30 May 2015 16:48:28 -0500

@@ -138,7 +138,7 @@
 
           
           <div class="method-source-code" id="breadcrumbs-source">
-            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 76</span>
+            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 87</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">breadcrumbs</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:controller</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;appointments&quot;</span>
     <span class="ruby-identifier">puts</span> <span class="ruby-identifier">params</span>
@@ -151,6 +151,10 @@
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:controller</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;schedules&quot;</span>
     <span class="ruby-identifier">puts</span> <span class="ruby-identifier">params</span>
     <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Mis horarios de atención&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:controller</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;courses&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">params</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Materias&quot;</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -357,6 +361,17 @@ aplicación</p>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:controller</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;schedules&quot;</span>
     <span class="ruby-identifier">puts</span> <span class="ruby-identifier">params</span>
     <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Mis horarios de atención&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:controller</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;courses&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">params</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:action</span>]<span class="ruby-operator">==</span> <span class="ruby-string">&quot;index&quot;</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Materias&quot;</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:action</span>]<span class="ruby-operator">==</span> <span class="ruby-string">&quot;mis_materias&quot;</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Mis materias&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:action</span>]<span class="ruby-operator">==</span> <span class="ruby-string">&quot;show&quot;</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">nombre</span>
+    <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>

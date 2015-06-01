@@ -80,8 +80,6 @@
     
     <li ><a href="#method-i-schedule_params">#schedule_params</a>
     
-    <li ><a href="#method-i-show">#show</a>
-    
     <li ><a href="#method-i-update">#update</a>
     
   </ul>
@@ -154,7 +152,7 @@ como registro en la base de datos</p>
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/schedules_controller.rb, line 34</span>
+            <pre><span class="ruby-comment"># File app/controllers/schedules_controller.rb, line 32</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@horario</span> = <span class="ruby-constant">Schedule</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">schedule_params</span>)
   <span class="ruby-ivar">@horario</span>.<span class="ruby-identifier">user_id</span>=<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>
@@ -209,7 +207,7 @@ href="Schedule.html">Schedule</a></p>
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/schedules_controller.rb, line 56</span>
+            <pre><span class="ruby-comment"># File app/controllers/schedules_controller.rb, line 54</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@user</span> = <span class="ruby-constant">Schedule</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">destroy</span>
@@ -293,7 +291,7 @@ variable @horario</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/schedules_controller.rb, line 23</span>
+            <pre><span class="ruby-comment"># File app/controllers/schedules_controller.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@dias</span> =[<span class="ruby-string">&#39;lunes&#39;</span>,<span class="ruby-string">&#39;martes&#39;</span>,<span class="ruby-string">&#39;miercoles&#39;</span>,<span class="ruby-string">&#39;jueves&#39;</span>,<span class="ruby-string">&#39;viernes&#39;</span>]
   <span class="ruby-ivar">@horario</span>=<span class="ruby-constant">Schedule</span>.<span class="ruby-identifier">new</span>
@@ -329,39 +327,7 @@ variable @horario</p>
           <div class="method-source-code" id="schedule_params-source">
             <pre><span class="ruby-comment"># File app/controllers/schedules_controller.rb, line 5</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">schedule_params</span>
-    <span class="ruby-identifier">params</span>.<span class="ruby-identifier">require</span>(<span class="ruby-value">:schedule</span>).<span class="ruby-identifier">permit</span>(<span class="ruby-value">:id</span>,<span class="ruby-value">:user_id</span>,<span class="ruby-value">:dia_semana</span>, <span class="ruby-value">:hora_inicio</span>, <span class="ruby-value">:hora_fin</span>)
-  <span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-show" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">show</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/schedules_controller.rb, line 16</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">require</span>(<span class="ruby-value">:schedule</span>).<span class="ruby-identifier">permit</span>(<span class="ruby-value">:id</span>,<span class="ruby-value">:user_id</span>,<span class="ruby-value">:dia_semana</span>, <span class="ruby-value">:hora_inicio</span>, <span class="ruby-value">:hora_fin</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -392,7 +358,7 @@ variable @horario</p>
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/schedules_controller.rb, line 48</span>
+            <pre><span class="ruby-comment"># File app/controllers/schedules_controller.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
 <span class="ruby-keyword">end</span></pre>
           </div>

@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>class CoursesController - Rails Application Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-agregar_seccion">#agregar_seccion</a>
+    
+    <li ><a href="#method-i-catalogo">#catalogo</a>
+    
+    <li ><a href="#method-i-course_params">#course_params</a>
+    
+    <li ><a href="#method-i-create">#create</a>
+    
+    <li ><a href="#method-i-cuestionario">#cuestionario</a>
+    
+    <li ><a href="#method-i-destroy">#destroy</a>
+    
+    <li ><a href="#method-i-edit">#edit</a>
+    
+    <li ><a href="#method-i-guardar_comentario">#guardar_comentario</a>
+    
+    <li ><a href="#method-i-guardar_resultados">#guardar_resultados</a>
+    
+    <li ><a href="#method-i-index">#index</a>
+    
+    <li ><a href="#method-i-mis_materias">#mis_materias</a>
+    
+    <li ><a href="#method-i-new">#new</a>
+    
+    <li ><a href="#method-i-set_course">#set_course</a>
+    
+    <li ><a href="#method-i-show">#show</a>
+    
+    <li ><a href="#method-i-update">#update</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-CoursesController">
+  <h1 id="class-CoursesController" class="class">
+    class CoursesController
+  </h1>
+
+  <section class="description">
+    
+<p>Clase encargada de controlar las acciones concernientes a los objetos de
+tipo <a href="Course.html">Course</a></p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-agregar_seccion" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">agregar_seccion</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Agrega un objeto de tipo <a href="Section.html">Section</a> a la base de
+datos y los asocia a la materia actual</p>
+<ul><li>
+<p>*Parámetros*    :</p>
+<ul><li>
+<p><code>id</code> -&gt; Identificador único del registro de tipo <a
+href="Course.html">Course</a></p>
+</li></ul>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="agregar_seccion-source">
+            <pre><span class="ruby-comment"># File app/controllers/courses_controller.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">agregar_seccion</span>
+  <span class="ruby-ivar">@materia</span>= <span class="ruby-constant">Course</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@seccion</span>=<span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">sections</span>.<span class="ruby-identifier">build</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-catalogo" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">catalogo</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Muestra un listado de los objetos de tipo <a href="Course.html">Course</a>
+para cualquier tipo de usuario.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="catalogo-source">
+            <pre><span class="ruby-comment"># File app/controllers/courses_controller.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">catalogo</span>
+  <span class="ruby-ivar">@materias</span>= <span class="ruby-constant">Course</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:nombre</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-course_params" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">course_params</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Parámetros permitidos para alterar provenientes de la vista</p>
+          
+          
+
+          
+          <div class="method-source-code" id="course_params-source">
+            <pre><span class="ruby-comment"># File app/controllers/courses_controller.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">course_params</span>
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">require</span>(<span class="ruby-value">:course</span>).<span class="ruby-identifier">permit</span>(<span class="ruby-value">:id</span>,<span class="ruby-value">:nombre</span>,<span class="ruby-value">:creditos</span>, <span class="ruby-value">:descripcion</span>,<span class="ruby-value">:intensidad</span>,<span class="ruby-value">:dificultad</span>,<span class="ruby-value">:utilidad</span>,<span class="ruby-value">:numero_encuestas</span>,<span class="ruby-value">:users_ids=</span><span class="ruby-operator">&gt;</span>[] ,<span class="ruby-identifier">sections_attributes</span><span class="ruby-operator">:</span> [<span class="ruby-value">:id</span>,<span class="ruby-value">:course_id</span>,<span class="ruby-value">:semestre</span>,<span class="ruby-value">:estado</span>], <span class="ruby-identifier">comments_attributes</span><span class="ruby-operator">:</span> [<span class="ruby-value">:id</span>,<span class="ruby-value">:comment_id</span>,<span class="ruby-value">:user_id</span>,<span class="ruby-value">:comment</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Guarda la información del Objeto de tipo <a href="Course.html">Course</a>
+en la base de datos</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File app/controllers/courses_controller.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
+  <span class="ruby-ivar">@materia</span> = <span class="ruby-constant">Course</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">course_params</span>)
+  <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">numero_encuestas</span>=<span class="ruby-value">0</span>
+  <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">intensidad</span>=<span class="ruby-value">0.0</span>
+  <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">dificultad</span>=<span class="ruby-value">0.0</span>
+  <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">utilidad</span>=<span class="ruby-value">0.0</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:courses</span>, <span class="ruby-value">:flash</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">:success</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Materia creada exitosamente.&#39;</span> }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;index&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cuestionario" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cuestionario</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Accede a la informacion del Objeto de tipo <a href="Course.html">Course</a>
+actual y lo prepara para un formulario en la vista asociada</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cuestionario-source">
+            <pre><span class="ruby-comment"># File app/controllers/courses_controller.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cuestionario</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;PARAMETROS DE CUESTIONARIO&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">params</span>
+  <span class="ruby-ivar">@materia</span>= <span class="ruby-constant">Course</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-destroy" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">destroy</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Elimina un Objeto de tipo <a href="Course.html">Course</a> de la base de
+datos</p>
+<ul><li>
+<p>*Parámetros*    :</p>
+<ul><li>
+<p><code>id</code> -&gt; Identificador único del registro de tipo <a
+href="Course.html">Course</a> a eliminar</p>
+</li></ul>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="destroy-source">
+            <pre><span class="ruby-comment"># File app/controllers/courses_controller.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
+  <span class="ruby-ivar">@materia</span> = <span class="ruby-constant">Course</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">destroy</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:courses</span>, <span class="ruby-value">:flash</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">:success</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Materia eliminada exitosamente.&quot;</span>}
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:courses</span>, <span class="ruby-value">:flash</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">:error</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;No se encontró la materia a eliminar&quot;</span>}
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-edit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">edit</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Accede y prepara el objeto de tipo <a href="Course.html">Course</a> para su
+edición en su vista asociada</p>
+<ul><li>
+<p>*Parámetros*    :</p>
+<ul><li>
+<p><code>id</code> -&gt; Identificador único del registro de tipo <a
+href="Course.html">Course</a></p>
+</li></ul>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="edit-source">
+            <pre><span class="ruby-comment"># File app/controllers/courses_controller.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
+  <span class="ruby-ivar">@materia</span>=<span class="ruby-constant">Course</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">sections</span>.<span class="ruby-identifier">build</span>
+  <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">build</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-guardar_comentario" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">guardar_comentario</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Agrega un un objeto de tipo <a href="Comment.html">Comment</a> y lo asocia
+a la materia actual</p>
+<ul><li>
+<p>*Parámetros*    :</p>
+<ul><li>
+<p><code>id</code> -&gt; Identificador único del registro de tipo <a
+href="Course.html">Course</a></p>
+</li></ul>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="guardar_comentario-source">
+            <pre><span class="ruby-comment"># File app/controllers/courses_controller.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">guardar_comentario</span>
+  <span class="ruby-identifier">set_course</span>
+  <span class="ruby-identifier">comment</span>= <span class="ruby-constant">Comment</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">comment</span>.<span class="ruby-identifier">comentario</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:comment</span>]
+  <span class="ruby-identifier">comment</span>.<span class="ruby-identifier">user</span>=<span class="ruby-identifier">current_user</span>
+  <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">comments</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-identifier">comment</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">courses_path</span>, <span class="ruby-value">:flash</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">:success</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Comentario agregado&#39;</span> }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">courses_path</span>, <span class="ruby-value">:flash</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">:error</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;No ha sido posible guardar el comentario.&#39;</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-guardar_resultados" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">guardar_resultados</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Guarda la información del formulario de cuestioario actualizando la
+información del objeto detipo <a href="Course.html">Course</a> en la  base
+de datos</p>
+<ul><li>
+<p>*Parámetros*    :</p>
+<ul><li>
+<p><code>id</code> -&gt; Identificador único del registro de tipo <a
+href="Course.html">Course</a></p>
+</li></ul>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="guardar_resultados-source">
+            <pre><span class="ruby-comment"># File app/controllers/courses_controller.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">guardar_resultados</span>
+  <span class="ruby-ivar">@materia</span>= <span class="ruby-constant">Course</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;PARAMETROS DE EVUALUACION&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">params</span>
+  <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">dif_sum</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:dificultad</span>].<span class="ruby-identifier">to_i</span>
+  <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">inten_sum</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:intensidad</span>].<span class="ruby-identifier">to_i</span>
+  <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">util_sum</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:utilidad</span>].<span class="ruby-identifier">to_i</span>
+  <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">numero_encuestas</span> = <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">numero_encuestas</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>
+  <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">dificultad</span>= <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">dif_sum</span><span class="ruby-operator">/</span><span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">numero_encuestas</span>
+  <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">intensidad</span>= <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">inten_sum</span><span class="ruby-operator">/</span><span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">numero_encuestas</span>
+  <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">utilidad</span>= <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">util_sum</span><span class="ruby-operator">/</span><span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">numero_encuestas</span>
+  <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">users</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-identifier">current_user</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:courses</span>, <span class="ruby-value">:flash</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">:success</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Materia evaluada correctamente.&#39;</span> }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:courses</span>, <span class="ruby-value">:flash</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">:error</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;No ha sido posible guardar los datos de la materia.&#39;</span> }
+  <span class="ruby-keyword">end</span>
+  
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Muestra un listado de los objetos de tipo <a href="Course.html">Course</a>
+para el usuario de tipo administrador.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/courses_controller.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
+  <span class="ruby-ivar">@materias</span>= <span class="ruby-constant">Course</span>.<span class="ruby-identifier">all</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mis_materias" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mis_materias</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Muestra un listado de los objetos de tipo <a href="Course.html">Course</a>
+que el usuario ha evaluado y aprobado</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mis_materias-source">
+            <pre><span class="ruby-comment"># File app/controllers/courses_controller.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mis_materias</span>
+  <span class="ruby-ivar">@vistas</span>= <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">courses</span>
+  <span class="ruby-ivar">@total_creditos</span>= <span class="ruby-constant">Course</span>.<span class="ruby-identifier">sum</span>(<span class="ruby-value">:creditos</span>)
+  <span class="ruby-ivar">@creditos_vistos</span>=<span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Prepara un objeto de tipo <a href="Course.html">Course</a> para ser llenado
+a traves del formulario de la vista asociada</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File app/controllers/courses_controller.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@materia</span>= <span class="ruby-constant">Course</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">sections</span>.<span class="ruby-identifier">build</span>
+  <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">build</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_course" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_course</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Definicion de objeto actual de tipo course</p>
+<ul><li>
+<p>*Parámetros*    :</p>
+<ul><li>
+<p><code>id</code> -&gt; Identificador único del registro de tipo <a
+href="Course.html">Course</a></p>
+</li></ul>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="set_course-source">
+            <pre><span class="ruby-comment"># File app/controllers/courses_controller.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_course</span>
+  <span class="ruby-ivar">@materia</span>=<span class="ruby-constant">Course</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-show" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Muestra los detalles de una materia</p>
+<ul><li>
+<p>*Parámetros*    :</p>
+<ul><li>
+<p><code>id</code> -&gt; Identificador único del registro de tipo <a
+href="Course.html">Course</a></p>
+</li></ul>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="show-source">
+            <pre><span class="ruby-comment"># File app/controllers/courses_controller.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
+  <span class="ruby-ivar">@materia</span>= <span class="ruby-constant">Course</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Actualiza los datos del objeto de tipo <a href="Course.html">Course</a> y
+los modifica en la base de datos</p>
+<ul><li>
+<p>*Parámetros*    :</p>
+<ul><li>
+<p><code>id</code> -&gt; Identificador único del registro de tipo <a
+href="Course.html">Course</a></p>
+</li></ul>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File app/controllers/courses_controller.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;PARAMETROS DE ACTUALIZACION DE CURSO&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">params</span>
+  
+  <span class="ruby-ivar">@materia</span>=<span class="ruby-constant">Course</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@materia</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">course_params</span>)
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">course_url</span>(<span class="ruby-ivar">@materia</span>), <span class="ruby-identifier">success</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Datos de materia actualizados satisfactoriamente.&#39;</span>
+    <span class="ruby-comment">#redirect_to :courses, :flash =&gt; { :success =&gt; &#39;Datos de materia actualizados satisfactoriamente.&#39; }</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:courses</span>, <span class="ruby-value">:flash</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">:error</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;No ha sido posible actualizar los datos de la materia.&#39;</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
